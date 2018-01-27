@@ -19,7 +19,7 @@ if [ ! -e "/var/www/html/data/configuration/parametres.xml" ]; then
     echo "No data found in /var/www/html/data - Installing PluXml"
     copy_default_data
 else
-    echo "Data found - Check version"
+    echo "Data found - Checking version"
         plx__version="$(grep 'PLX_VERSION' /var/www/html/core/lib/config.php | cut -d "'" -f 4)"
         plx__installed="$(grep '"version"' /var/www/html/data/configuration/parametres.xml  | cut -f 2 -d ">" | cut -f 1 -d "<" )"
         if [ "$plx__version" -gt "$plx__installed" ]; then
