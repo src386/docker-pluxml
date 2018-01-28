@@ -15,13 +15,7 @@ You can find out more about PluXml features on the [project's website][pluxml] (
 
 ## Quick start
 
-Clone this repository, build the image and fire up a PluXml container:
-
-    git clone https://github.com/src386/docker-pluxml
-    cd docker-pluxml && docker build -t pluxml .
-    docker run --publish 80:80 --name pluxml --detach pluxml
-
-Or, use docker-compose (recommended):
+Use docker-compose (recommended):
 
     git clone https://github.com/src386/docker-pluxml
     cd docker-pluxml && docker-compose up -d
@@ -38,15 +32,7 @@ Features
 Upgrades
 --------
 
-Upgrades should be easy, docker-pluxml has a `docker-entrypoint.sh` script that handles everything.
-Just pull the git repo, rebuild and restart your container:
-
-    cd docker-pluxml && git pull
-    docker build -t pluxml .
-    docker stop pluxml
-    docker run --publish 80:80 --name pluxml --detach pluxml
-
-Or, use docker-compose (recommended):
+Use docker-compose (recommended):
 
     cd docker-pluxml && git pull
     docker-compose build --pull
