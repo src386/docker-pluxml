@@ -2,6 +2,8 @@ version: '3'
 services:
 
   pluxml:
+    image:
+      src386/docker-pluxml:5.6
     build:
       context: .
       args:
@@ -10,9 +12,6 @@ services:
       - "127.0.0.1:80:80"
     volumes:
       - /etc/localtime:/etc/localtime
-#      - data:/var/www/html/data
-#   image: pluxml:latest
-#   restart: unless-stopped
-#
-#volumes:
-#  data:
+      - data:/var/www/html/data
+volumes:
+  data:

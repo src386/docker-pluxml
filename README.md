@@ -56,15 +56,15 @@ Features
 Development
 -----------
 
-If you want to build the image:
+For example if you want to build the 5.6 image:
 
     git clone https://github.com/src386/docker-pluxml
-    cd docker-pluxml && docker build -t docker-pluxml:latest .
+    cd docker-pluxml/5.6 && docker build -t docker-pluxml:5.6 .
 
 Or you may want to use the docker-compose.yml file:
 
     git clone https://github.com/src386/docker-pluxml
-    docker-compose build
+    cd docker-pluxml/5.6 && docker-compose build
 
 Upgrades
 --------
