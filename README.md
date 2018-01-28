@@ -34,7 +34,7 @@ Create a docker-compose.yml file:
         ports:
           - "127.0.0.1:80:80"
         volumes:
-          - /etc/localtime:/etc/localtime
+          - /etc/localtime:/etc/localtime:ro
           - data:/var/www/html/data
 
     volumes:
