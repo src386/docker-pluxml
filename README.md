@@ -18,7 +18,7 @@ You can find out more about PluXml features on the [project's website][pluxml] (
 Pull the image and fire up a PluXml container:
 
     docker pull src386/docker-pluxml
-    docker run --name pluxml -p 80:80 -v data:/var/www/html/data -d src386/docker-pluxml:latest
+    docker run -p 80:80 -v data:/var/www/html/data -d src386/docker-pluxml:latest
 
 It is recommend to use a VOLUME for /var/www/html/data (persistent data).
 
@@ -75,12 +75,7 @@ The image uses a `docker-entrypoint.sh` script that handles data upgrades.
 Configuration
 -------------
 
-Coming soon:
-
-- log real ip (behind reverse proxy)
-- upload_max_filesize
-- timezone
-- smtp
+Coming soon.
 
 ## Licensing
 
