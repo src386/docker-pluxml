@@ -69,13 +69,8 @@ Or you may want to use the docker-compose.yml file:
 Upgrades
 --------
 
-Use docker-compose (recommended):
-
-    cd docker-pluxml && git pull
-    docker-compose build --pull
-    docker-compose up -d
-
-A pre-build Dockerhub image is coming soon.
+Pull the new image then restart your containers.
+The image uses a `docker-entrypoint.sh` script that handles data upgrades.
 
 Configuration
 -------------
