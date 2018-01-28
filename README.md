@@ -15,12 +15,36 @@ You can find out more about PluXml features on the [project's website][pluxml] (
 
 ## Quick start
 
-Use docker-compose (recommended):
+Pull the image and fire up a PluXml container:
 
-    git clone https://github.com/src386/docker-pluxml
-    cd docker-pluxml && docker-compose up -d
+    docker pull src386/docker-pluxml
+    docker run --name pluxml -p 80:80 -v data:/var/www/html/data -d src386/docker-pluxml:latest
 
-A pre-built Dockerhub image is coming soon.
+It is recommend to use a VOLUME for /var/www/html/data (persistent data).
+
+Or, using docker-compose (recommended):
+
+Create a docker-compose.yml file:
+
+    version: '3'
+    services:
+
+      pluxml:
+        image: src386/docker-pluxml:latest
+        ports:
+          - "127.0.0.1:80:80"
+        volumes:
+          - /etc/localtime:/etc/localtime
+          - data:/var/www/html/data
+
+    volumes:
+      data:
+
+It is recommended to use a VOLUME for /var/www/html/data (persistent data).
+
+Then fire up a PluXml container:
+
+    docker-compose up -d
 
 Features
 --------
@@ -28,6 +52,19 @@ Features
 - Image currently based on php:7.2-apache
 - Plugins: plxtoolbar (unofficial wysiwyg editor for PluXml) and plxmycontact (contact form)
 - Handles upgrades 
+
+Development
+-----------
+
+If you want to build the image:
+
+    git clone https://github.com/src386/docker-pluxml
+    cd docker-pluxml && docker build -t docker-pluxml:latest .
+
+Or you may want to use the docker-compose.yml file:
+
+    git clone https://github.com/src386/docker-pluxml
+    docker-compose build
 
 Upgrades
 --------
