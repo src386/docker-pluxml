@@ -1,41 +1,72 @@
-# docker-pluxml
+# [![PluXml logo][pluxml-logo]](http://www.pluxml.org/) docker-pluxml
 
-PluXml is a lightweight blog engine powered by Xml (no database).
+*A lightweight blog engine powered by Xml*
 
-# Run with docker-compose (RECOMMENDED)
+[![RSS commits][rss-commits]](https://github.com/debops/debops/commits/master.atom)
 
-Clone:
+[pluxml-logo]: https://raw.githubusercontent.com/src386/docker-pluxml/master/lib/images/pluxml-logo-small.png
+[rss-commits]: https://img.shields.io/badge/RSS-commits-orange.svg
 
-```bash
-$ git clone https://github.com/src386/docker-pluxml
-```
+[PluXml][pluxml] is a lightweight, easy to use opensource CMS/Blog-engine that requires no database. It is portable and can be simply moved to a standard web hosting. Static pages, tags, media, rss, user management, plugins, url rewriting are supported. It is available in 11 languages.
 
-Build and run:
+You can find out more about PluXml features on the [project's website][pluxml] (french).
 
-```bash
-$ cd docker-pluxml
-$ docker-compose up -d
-```
+[pluxml]: http://www.pluxml.org/
 
-# Upgrade
+## Quick start
 
-```bash
-$ cd docker-pluxml
-$ docker-compose build --pull
-$ docker-compose up -d
-```
+Clone this repository, build the image and fire up a PluXml container:
 
-# About
+    git clone https://github.com/src386/docker-pluxml
+    cd docker-pluxml && docker build -t pluxml .
+    docker run --publish 80:80 --name pluxml --detach pluxml
 
-- Image based on php:7.2-apache
-- plxtoolbar (unofficial wysiwyg plyxml editor)
-- plxmycontact (smtp support TODO)
-- install.php is removed, unless new install or upgrade
+Or, use docker-compose (recommended):
 
-# Misc
+    git clone https://github.com/src386/docker-pluxml
+    cd docker-pluxml && docker-compose up -d
 
-TODO
+A pre-built Dockerhub image is coming soon.
+
+Features
+--------
+
+- Image currently based on php:7.2-apache
+- Plugins: plxtoolbar (unofficial wysiwyg editor for PluXml) and plxmycontact (contact form)
+- Handles upgrades 
+
+Upgrades
+--------
+
+Upgrades should be easy, docker-pluxml has a `docker-entrypoint.sh` script that handles everything.
+Just pull the git repo, rebuild and restart your container:
+
+    cd docker-pluxml && git pull
+    docker build -t pluxml .
+    docker stop pluxml
+    docker run --publish 80:80 --name pluxml --detach pluxml
+
+Or, use docker-compose (recommended):
+
+    cd docker-pluxml && git pull
+    docker-compose build --pull
+    docker-compose up -d
+
+A pre-build Dockerhub image is coming soon.
+
+Configuration
+-------------
+
+Coming soon:
 
 - upload_max_filesize
 - timezone
-- ssmtp
+- smtp
+
+## Licensing
+
+Since PluXml is under [GNU General Public License][gnugpl], docker-pluxml too.
+You can find full text of the license in the [LICENSE][license] file.
+
+[gnugpl]: http://www.gnu.org/licenses/gpl.html
+[license]: https://github.com/src386/docker-pluxml/blob/master/LICENSE
