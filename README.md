@@ -1,13 +1,13 @@
 # [![PluXml logo][pluxml-logo]](http://www.pluxml.org/) docker-pluxml
 
-*A lightweight blog engine powered by Xml*
+*A lightweight blog engine powered by PHP and Xml*
 
 [![RSS commits][rss-commits]](https://github.com/src386/docker-pluxml/commits/master.atom)
 
 [pluxml-logo]: https://raw.githubusercontent.com/src386/docker-pluxml/master/lib/images/pluxml-logo-small.png
 [rss-commits]: https://img.shields.io/badge/RSS-commits-orange.svg
 
-[PluXml][pluxml] is a lightweight, easy to use opensource CMS/Blog-engine that requires no database. It is portable and can be simply moved to a standard web hosting. Static pages, tags, media, rss, user management, plugins, url rewriting are supported. It is available in 11 languages.
+[PluXml][pluxml] is a lightweight, easy to use opensource CMS/Blog-engine that requires no database. It is portable and can be installed in a standard php web hosting solution. Static pages, tags, media, rss, user management, plugins, url rewriting are supported. It is available in 11 languages.
 
 You can find out more about PluXml features on the [project's website][pluxml] (french).
 
