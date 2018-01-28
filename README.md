@@ -77,6 +77,7 @@ Configuration
 
 Coming soon:
 
+- log real ip (behind reverse proxy)
 - upload_max_filesize
 - timezone
 - smtp
