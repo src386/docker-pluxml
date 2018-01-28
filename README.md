@@ -2,7 +2,7 @@
 
 *A lightweight blog engine powered by Xml*
 
-[![RSS commits][rss-commits]](https://github.com/debops/debops/commits/master.atom)
+[![RSS commits][rss-commits]](https://github.com/src386/docker-pluxml/commits/master.atom)
 
 [pluxml-logo]: https://raw.githubusercontent.com/src386/docker-pluxml/master/lib/images/pluxml-logo-small.png
 [rss-commits]: https://img.shields.io/badge/RSS-commits-orange.svg
