@@ -18,7 +18,10 @@ You can find out more about PluXml features on the [project's website][pluxml] (
 Pull the image and fire up a PluXml container:
 
     docker pull src386/docker-pluxml
-    docker run -p 80:80 -v data:/var/www/html/data -d src386/docker-pluxml:latest
+    docker run -p 80:80 \
+     -v /etc/localtime:/etc/localtime:ro \
+     -v data:/var/www/html/data \
+     -d src386/docker-pluxml:latest
 
 It is recommend to use a VOLUME for /var/www/html/data (persistent data).
 
@@ -75,7 +78,40 @@ The image uses a `docker-entrypoint.sh` script that handles data upgrades.
 Configuration
 -------------
 
-Coming soon.
+List of environment variables:
+
+- **PHP_TIMEZONE**: Set `date.timezone` for PHP (default to none/UTC)
+- **PHP_UPLOAD_MAXSIZE**: Set `upload_max_filesize` (default 2M)  and `post_max_size`
+- **PHP_SMTP_RELAY**: *Work in progress*
+
+Example:
+
+    docker run \
+    -p 80:80 \
+    -v /etc/localtime:/etc/localtime:ro \
+    -v data:/var/www/html/data \
+    -e PHP_TIMEZONE=Europe/Paris \
+    -e PHP_UPLOAD_MAXSIZE=8M \ 
+    -d src386/docker-pluxml:latest
+
+Or, using docker-compose:
+
+    version: '3'
+    services:
+
+      pluxml:
+        image: src386/docker-pluxml:latest
+        ports:
+          - "127.0.0.1:80:80"
+        volumes:
+          - /etc/localtime:/etc/localtime:ro
+          - data:/var/www/html/data
+        environment:
+          - PHP_TIMEZONE=Europe/Paris
+          - PHP_UPLOAD_MAXSIZE=8M
+
+    volumes:
+      data:
 
 ## Licensing
 

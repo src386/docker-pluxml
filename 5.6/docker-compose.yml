@@ -13,5 +13,8 @@ services:
     volumes:
       - /etc/localtime:/etc/localtime
       - data:/var/www/html/data
+#    environment:
+#      - PHP_TIMEZONE=Europe/Paris
+#      - PHP_UPLOAD_MAXSIZE=8M
 volumes:
   data:
