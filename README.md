@@ -76,11 +76,15 @@ The image uses a `docker-entrypoint.sh` script that handles data upgrades.
 Configuration
 -------------
 
-List of environment variables:
+List of (optionnal) environment variables:
 
-- **PHP_TIMEZONE**: Set `date.timezone` for PHP (default to none/UTC)
-- **PHP_UPLOAD_MAXSIZE**: Set `upload_max_filesize` (default 2M)  and `post_max_size`
-- **PHP_SMTP_RELAY**: *Work in progress*
+- **PHP_TIMEZONE**: Set `date.timezone` for PHP (default: none/UTC)
+- **PHP_UPLOAD_MAXSIZE**: Set `upload_max_filesize` (default: 2M)  and `post_max_size`
+- **PHP_SMTP_HOST**: ip or hostname
+- **PHP_SMTP_PORT**: (default: 25)
+- **PHP_SMTP_USER**: (default: blank)
+- **PHP_SMTP_PASSWORD**: (default: blank)
+- **PHP_SMTP_USE_TLS**: set to **yes** to use TLS connnection (default: none)
 
 Example:
 
@@ -90,6 +94,11 @@ Example:
     -v data:/var/www/html/data \
     -e PHP_TIMEZONE=Europe/Paris \
     -e PHP_UPLOAD_MAXSIZE=8M \ 
+    -e PHP_SMTP_HOST=1.2.3.4 \
+    -e PHP_SMTP_PORT=25 \
+    -e PHP_SMTP_USER=john \
+    -e PHP_SMTP_PASSWORD=secret \
+    -e PHP_SMTP_USE_TLS=yes \
     -d src386/docker-pluxml:latest
 
 Or, using docker-compose:
@@ -105,8 +114,13 @@ Or, using docker-compose:
           - /etc/localtime:/etc/localtime:ro
           - data:/var/www/html/data
         environment:
-          - PHP_TIMEZONE=Europe/Paris
-          - PHP_UPLOAD_MAXSIZE=8M
+         - PHP_TIMEZONE=Europe/Paris
+         - PHP_UPLOAD_MAXSIZE=8M
+         - PHP_SMTP_HOST=1.2.3.4
+         - PHP_SMTP_PORT=25
+         - PHP_SMTP_USER=john
+         - PHP_SMTP_PASSWORD=secret
+         - PHP_SMTP_USE_TLS=yes
 
     volumes:
       data:

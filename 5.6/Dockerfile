@@ -56,6 +56,17 @@ RUN set -xe; \
     \
     apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false $fetchDeps
 
+# Install ssmtp to send e-mail through a relay
+#
+RUN set -xe; \
+    \
+    smtpDeps=' \
+        ssmtp \
+    '; \
+    apt-get update; \
+    apt-get install -y --no-install-recommends $smtpDeps; \
+    rm -rf /var/lib/apt/lists/*
+
 VOLUME /var/www/html/data
 
 COPY docker-entrypoint.sh /usr/local/bin/

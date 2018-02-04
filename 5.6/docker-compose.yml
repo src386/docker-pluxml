@@ -16,5 +16,10 @@ services:
 #    environment:
 #      - PHP_TIMEZONE=Europe/Paris
 #      - PHP_UPLOAD_MAXSIZE=8M
+#      - PHP_SMTP_HOST=1.2.3.4
+#      - PHP_SMTP_PORT=25
+#      - PHP_SMTP_USER=john
+#      - PHP_SMTP_PASSWORD=secret
+#      - PHP_SMTP_USE_TLS=yes
 volumes:
   data:
