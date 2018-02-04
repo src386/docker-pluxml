@@ -125,6 +125,16 @@ Or, using docker-compose:
     volumes:
       data:
 
+## FAQ
+
+### How do I delete install.php ?
+
+Restart the container. If install.php is still present, open an issue.
+
+### What about HTTPS support ?
+
+I will **not** implement https support. Use nginx or haproxy as a reverse proxy and SSL offloader.
+
 ## Licensing
 
 Since PluXml is under [GNU General Public License][gnugpl], docker-pluxml too.
