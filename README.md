@@ -27,8 +27,6 @@ It is recommend to use a VOLUME for /var/www/html/data (persistent data).
 
 Or, using docker-compose (recommended):
 
-Create a docker-compose.yml file:
-
     version: '3'
     services:
 
