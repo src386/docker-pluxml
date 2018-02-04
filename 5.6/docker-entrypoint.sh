@@ -5,7 +5,7 @@
 # - Check if pluxml data is present and needs to be created with default directory layout, or upgraded.
 # - Check if PHP_TIMEZONE is defined and set it 
 # - Check if PHP_UPLOAD_MAXSIZE is defined and set it
-# - Check if PHP_SMTP_HOST is defined and set it
+# - Check if PHP_SMTP_HOST and configure smtp for php
 # - Configure /etc/ssmtp/ssmtp.conf with SMTP parameters
 
 # Detect if PluXml has existing data
@@ -39,7 +39,6 @@ else
 	date.timezone = "${PHP_TIMEZONE}"
 	EOF
     # Do not indent EOF with spaces, <<-EOF works with TAB
-#    echo "date.timezone = "\"${PHP_TIMEZONE}"\"" > /usr/local/etc/php/conf.d/docker-php-timezone.ini
 fi
 
 # Set post_max_size and upload_max_filesize if PHP_UPLOAD_MAXSIZE is defined
@@ -65,6 +64,7 @@ else
 	sendmail_path = "/usr/sbin/ssmtp -t"
 	EOF
     # Do not indent EOF with spaces, <<-EOF works with TAB
+
     SMTP_HOST=${PHP_SMTP_HOST}
     SMTP_USER=${PHP_SMTP_USER}
     SMTP_PASSWORD=${PHP_SMTP_PASSWORD}
@@ -75,6 +75,7 @@ else
 	AuthUser=${SMTP_USER}
 	AuthPass=${SMTP_PASSWORD}
 	EOF
+    # Do not indent EOF with spaces, <<-EOF works with TAB
 
     SMTP_USE_TLS=${PHP_SMTP_USE_TLS:=no} # Set to 'no' if undefined
     if [ ${SMTP_USE_TLS} = "yes" ]; then
@@ -83,6 +84,7 @@ else
 		UseTLS=yes
 		UseSTARTTLS=yes
 		EOF
+    # Do not indent EOF with spaces, <<-EOF works with TAB
     fi
 fi
 
