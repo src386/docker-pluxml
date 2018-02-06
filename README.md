@@ -13,6 +13,13 @@ You can find out more about PluXml features on the [project's website][pluxml] (
 
 [pluxml]: http://www.pluxml.org/
 
+## Supported tags and respective `Dockerfile` links
+
+- [`5.6`][dockerfile-5.6], [`latest`][dockerfile-latest] ([5.6/Dockerfile][dockerfile-latest])
+
+[dockerfile-latest]: https://github.com/src386/docker-pluxml/blob/master/5.6/Dockerfile
+[dockerfile-5.6]: https://github.com/src386/docker-pluxml/blob/master/5.6/Dockerfile
+
 ## Quick start
 
 Pull the image and fire up a PluXml container:
