@@ -88,7 +88,10 @@ List of (optionnal) environment variables:
 - PHP_SMTP_USER: (default: blank)
 - PHP_SMTP_PASSWORD: (default: blank)
 - PHP_SMTP_USE_TLS: set to **yes** to use TLS connnection (default: none)
-- ENABLE_REMOTEIP: set to **true** to log client real IP / X-Forwarded-For when using a load-balancer/reverse-proxy, please read the footnote [^realip]
+- ENABLE_REMOTEIP: set to **true** to log client real IP / X-Forwarded-For when using a load-balancer/reverse-proxy. Please consider reading the [mod_remoteip][mod_remoteip] documentation to understand how proxies are trusted. In order to easily work in a Docker container, mod_remoteip will trust [Private IPv4][ipv4spaces] address spaces.
+
+[mod_remoteip]: https://httpd.apache.org/docs/2.4/en/mod/mod_remoteip.html
+[ipv4spaces]: https://en.wikipedia.org/wiki/Private_network#Private_IPv4_address_spaces
 
 Full example:
 
@@ -148,8 +151,3 @@ You can find full text of the license in the [LICENSE][license] file.
 
 [gnugpl]: http://www.gnu.org/licenses/gpl.html
 [license]: https://github.com/src386/docker-pluxml/blob/master/LICENSE
-
-[^realip]: Please consider reading the [mod_remoteip][mod_remoteip] documentation to understand how proxies are trusted. In order to easily work in a Docker container, *RemoteIPTrustedProxy* will trust [Private IPv4][ipv4spaces] address spaces.
-
-[mod_remoteip]: https://httpd.apache.org/docs/2.4/en/mod/mod_remoteip.html
-[ipv4spaces]: https://en.wikipedia.org/wiki/Private_network#Private_IPv4_address_spaces
