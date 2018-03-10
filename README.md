@@ -26,7 +26,6 @@ Pull the image and fire up a PluXml container:
 
     docker pull src386/docker-pluxml
     docker run -p 80:80 \
-     -v /etc/localtime:/etc/localtime:ro \
      -v data:/var/www/html/data \
      -d src386/docker-pluxml:latest
 
@@ -42,13 +41,10 @@ Or, using docker-compose (recommended):
         ports:
           - "127.0.0.1:80:80"
         volumes:
-          - /etc/localtime:/etc/localtime:ro
           - data:/var/www/html/data
 
     volumes:
       data:
-
-It is recommended to use a VOLUME for /var/www/html/data (persistent data).
 
 Then fire up a PluXml container:
 
@@ -85,15 +81,16 @@ Configuration
 
 List of (optionnal) environment variables:
 
-- **PHP_TIMEZONE**: Set `date.timezone` for PHP (default: none/UTC)
-- **PHP_UPLOAD_MAXSIZE**: Set `upload_max_filesize` (default: 2M)  and `post_max_size`
-- **PHP_SMTP_HOST**: ip or hostname
-- **PHP_SMTP_PORT**: (default: 25)
-- **PHP_SMTP_USER**: (default: blank)
-- **PHP_SMTP_PASSWORD**: (default: blank)
-- **PHP_SMTP_USE_TLS**: set to **yes** to use TLS connnection (default: none)
+- PHP_TIMEZONE: Set `date.timezone` for PHP (default: none/UTC)
+- PHP_UPLOAD_MAXSIZE: Set `upload_max_filesize` (default: 2M)  and `post_max_size`
+- PHP_SMTP_HOST: ip or hostname
+- PHP_SMTP_PORT: (default: 25)
+- PHP_SMTP_USER: (default: blank)
+- PHP_SMTP_PASSWORD: (default: blank)
+- PHP_SMTP_USE_TLS: set to **yes** to use TLS connnection (default: none)
+- ENABLE_REMOTEIP: set to **true** to log client real IP / X-Forwarded-For when using a load-balancer/reverse-proxy, please read the footnote [^realip]
 
-Example:
+Full example:
 
     docker run \
     -p 80:80 \
@@ -106,6 +103,7 @@ Example:
     -e PHP_SMTP_USER=john \
     -e PHP_SMTP_PASSWORD=secret \
     -e PHP_SMTP_USE_TLS=yes \
+    -e ENABLE_REMOTEIP=true \
     -d src386/docker-pluxml:latest
 
 Or, using docker-compose:
@@ -128,6 +126,7 @@ Or, using docker-compose:
          - PHP_SMTP_USER=john
          - PHP_SMTP_PASSWORD=secret
          - PHP_SMTP_USE_TLS=yes
+         - ENABLE_REMOTEIP=true
 
     volumes:
       data:
@@ -149,3 +148,8 @@ You can find full text of the license in the [LICENSE][license] file.
 
 [gnugpl]: http://www.gnu.org/licenses/gpl.html
 [license]: https://github.com/src386/docker-pluxml/blob/master/LICENSE
+
+[^realip]: Please consider reading the [mod_remoteip][mod_remoteip] documentation to understand how proxies are trusted. In order to easily work in a Docker container, *RemoteIPTrustedProxy* will trust [Private IPv4][ipv4spaces] address spaces.
+
+[mod_remoteip]: https://httpd.apache.org/docs/2.4/en/mod/mod_remoteip.html
+[ipv4spaces]: https://en.wikipedia.org/wiki/Private_network#Private_IPv4_address_spaces

@@ -6,6 +6,7 @@
 # - Check if PHP_TIMEZONE is defined and set it 
 # - Check if PHP_UPLOAD_MAXSIZE is defined and set it
 # - Check if PHP_SMTP_HOST and configure smtp for php
+# - Check if ENABLE_REMOTEIP is true and a2enconf remoteip
 # - Configure /etc/ssmtp/ssmtp.conf with SMTP parameters
 
 # Detect if PluXml has existing data
@@ -53,6 +54,11 @@ else
 	upload_max_filesize = ${upload_max_filesize}M
 	EOF
     # Do not indent EOF with spaces, <<-EOF works with TAB
+fi
+
+# Enable remoteip module if ENABLE_REMOTEIP is true
+if [ "${ENABLE_REMOTEIP}" = true ] ; then
+    a2enconf remoteip
 fi
 
 # Set ssmtp.conf and sendmail_path if PHP_SMTP_HOST is defined

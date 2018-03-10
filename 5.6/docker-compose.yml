@@ -21,5 +21,6 @@ services:
 #      - PHP_SMTP_USER=john
 #      - PHP_SMTP_PASSWORD=secret
 #      - PHP_SMTP_USE_TLS=yes
+#      - ENABLE_REMOTEIP=true
 volumes:
   data:

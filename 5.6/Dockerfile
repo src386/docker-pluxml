@@ -9,9 +9,22 @@ ARG pluxml__git=https://github.com/pluxml/PluXml
 ARG plxtoolbar__git=https://github.com/Pluxopolis/plxtoolbar
 ARG plxmycontact__git=https://github.com/Pluxopolis/plxMyContact
 
-# Enable apache mod_rewrite
+# Enable apache mod_rewrite and remoteip
 #
-RUN a2enmod rewrite
+RUN set -xe; \
+    a2enmod rewrite; \
+    a2enmod remoteip
+
+# Configure remoteip, a2enconf done later by docker-entrypoint if REMOTEIP_ENABLE=true
+#
+RUN set -eux; \
+    { \
+        echo '# Allow Private IPv4 address spaces'; \ 
+        echo 'RemoteIPHeader X-Forwarded-For'; \
+        echo 'RemoteIPTrustedProxy 10.0.0.0/8'; \
+        echo 'RemoteIPTrustedProxy 172.16.0.0/12'; \
+        echo 'RemoteIPTrustedProxy 192.168.0.0/16'; \
+    } > /etc/apache2/conf-available/remoteip.conf
 
 # Build php extensions
 #
