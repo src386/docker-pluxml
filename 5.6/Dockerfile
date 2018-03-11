@@ -1,4 +1,4 @@
-# php-fpm
+# docker-pluxml
 #
 FROM php:7.2-apache
 
