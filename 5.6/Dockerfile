@@ -24,6 +24,10 @@ RUN set -eux; \
         echo 'RemoteIPTrustedProxy 10.0.0.0/8'; \
         echo 'RemoteIPTrustedProxy 172.16.0.0/12'; \
         echo 'RemoteIPTrustedProxy 192.168.0.0/16'; \
+        echo '# Override logging options'; \
+        echo 'LogFormat "%v:%p %a %l %u %t \"%r\" %>s %O \"%{Referer}i\" \"%{User-Agent}i\"" vhost_combined'; \
+        echo 'LogFormat "%a %l %u %t \"%r\" %>s %O \"%{Referer}i\" \"%{User-Agent}i\"" combined'; \
+        echo 'LogFormat "%a %l %u %t \"%r\" %>s %O" common'; \
     } > /etc/apache2/conf-available/remoteip.conf
 
 # Build php extensions

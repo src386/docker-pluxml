@@ -11,7 +11,7 @@ services:
     ports:
       - "127.0.0.1:80:80"
     volumes:
-      - /etc/localtime:/etc/localtime
+      - /etc/localtime:/etc/localtime:ro
       - data:/var/www/html/data
 #    environment:
 #      - PHP_TIMEZONE=Europe/Paris
