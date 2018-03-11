@@ -72,14 +72,10 @@ else
     # Do not indent EOF with spaces, <<-EOF works with TAB
 
     SMTP_HOST=${PHP_SMTP_HOST}
-    SMTP_USER=${PHP_SMTP_USER}
-    SMTP_PASSWORD=${PHP_SMTP_PASSWORD}
     SMTP_PORT=${PHP_SMTP_PORT:=25} # Set to 25 if undefined
     cat > /etc/ssmtp/ssmtp.conf <<-EOF
 	mailhub=${SMTP_HOST}:${SMTP_PORT}
 	FromLineOverride=yes
-	AuthUser=${SMTP_USER}
-	AuthPass=${SMTP_PASSWORD}
 	EOF
     # Do not indent EOF with spaces, <<-EOF works with TAB
 
@@ -91,6 +87,17 @@ else
 		UseSTARTTLS=yes
 		EOF
     # Do not indent EOF with spaces, <<-EOF works with TAB
+    fi
+
+    if [ -z ${PHP_SMTP_USER+x} ]; then
+        echo "PHP_SMTP_USER not set. Ignoring AuthUser and AuthPass configuration..."
+    else
+        SMTP_USER=${PHP_SMTP_USER}
+        SMTP_PASSWORD=${PHP_SMTP_PASSWORD}
+        cat  >> /etc/ssmtp/ssmtp.conf <<-EOF
+		AuthUser=${SMTP_USER}
+		AuthPass=${SMTP_PASSWORD}
+		EOF
     fi
 fi
 
