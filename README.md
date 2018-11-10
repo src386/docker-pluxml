@@ -2,9 +2,11 @@
 
 *A lightweight blog engine powered by PHP and Xml*
 
+[![Travis CI][travis-ci]](https://travis-ci.org/src386/docker-pluxml)
 [![RSS commits][rss-commits]](https://github.com/src386/docker-pluxml/commits/master.atom)
 
 [pluxml-logo]: https://raw.githubusercontent.com/src386/docker-pluxml/master/lib/images/pluxml-logo-small.png
+[travis-ci]: https://img.shields.io/travis/src386/docker-pluxml.svg?style=flat
 [rss-commits]: https://img.shields.io/badge/RSS-commits-orange.svg
 
 [PluXml][pluxml] is a lightweight, easy to use opensource CMS/Blog-engine that requires no database. It is portable and can be installed in a standard php web hosting solution. Static pages, tags, media, rss, user management, plugins, url rewriting are supported. It is available in 11 languages.
