@@ -7,7 +7,9 @@ language:
   - python
 
 before_install:
-  - docker build -t src386/docker-pluxml 5.6/
+  - docker build -t src386/docker-pluxml:5.6 5.6/
+  - docker build -t src386/docker-pluxml:5.7 5.7/
 
 script:
-  - docker run --rm -ti src386/docker-pluxml grep 'PLX_VERSION' /var/www/html/core/lib/config.php
+  - docker run --rm -ti src386/docker-pluxml:5.6 grep 'PLX_VERSION' /var/www/html/core/lib/config.php
+  - docker run --rm -ti src386/docker-pluxml:5.7 grep 'PLX_VERSION' /var/www/html/core/lib/config.php
