@@ -21,7 +21,7 @@ You can find out more about PluXml features on the [project's website][pluxml] (
 - [`5.6`][dockerfile-5.6] ([5.6/Dockerfile][dockerfile-5.6])
 
 [dockerfile-latest]: https://github.com/src386/docker-pluxml/blob/master/5.7/Dockerfile
-[dockerfile-5.67]: https://github.com/src386/docker-pluxml/blob/master/5.7/Dockerfile
+[dockerfile-5.7]: https://github.com/src386/docker-pluxml/blob/master/5.7/Dockerfile
 [dockerfile-5.6]: https://github.com/src386/docker-pluxml/blob/master/5.6/Dockerfile
 
 ## Quick start
