@@ -1,6 +1,6 @@
 # [![PluXml logo][pluxml-logo]](http://www.pluxml.org/) docker-pluxml
 
-*A lightweight blog engine powered by PHP and Xml*
+*A lightweight blog engine powered by PHP and Xml.*
 
 [![Travis CI][travis-ci]](https://travis-ci.org/src386/docker-pluxml)
 [![RSS commits][rss-commits]](https://github.com/src386/docker-pluxml/commits/master.atom)
@@ -17,7 +17,7 @@ You can find out more about PluXml features on the [project's website][pluxml] (
 
 ## Supported tags and respective `Dockerfile` links
 
-- [`5.7`][dockerfile-5.6], [`latest`][dockerfile-latest] ([5.7/Dockerfile][dockerfile-latest])
+- [`5.7`][dockerfile-5.7], [`latest`][dockerfile-latest] ([5.7/Dockerfile][dockerfile-5.7])
 - [`5.6`][dockerfile-5.6] ([5.6/Dockerfile][dockerfile-5.6])
 
 [dockerfile-latest]: https://github.com/src386/docker-pluxml/blob/master/5.7/Dockerfile
