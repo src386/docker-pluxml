@@ -78,7 +78,7 @@ RUN set -xe; \
 RUN set -xe; \
     \
     smtpDeps=' \
-        ssmtp \
+        msmtp \
     '; \
     apt-get update; \
     apt-get install -y --no-install-recommends $smtpDeps; \

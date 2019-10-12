@@ -2,12 +2,13 @@
 #
 
 # What this script does:
-# - Check if pluxml data is present and needs to be created with default directory layout, or upgraded.
+# - Check if pluxml data is present. If not, it needs to be created with default directory layout.
+# - Check if pluxml data needs an upgrade (if core > data).
 # - Check if PHP_TIMEZONE is defined and set it 
 # - Check if PHP_UPLOAD_MAXSIZE is defined and set it
 # - Check if PHP_SMTP_HOST and configure smtp for php
 # - Check if ENABLE_REMOTEIP is true and a2enconf remoteip
-# - Configure /etc/ssmtp/ssmtp.conf with SMTP parameters
+# - Configure /etc/msmtprc with SMTP parameters
 
 # Detect if PluXml has existing data
 if [ ! -e "/var/www/html/data/configuration/parametres.xml" ]; then
@@ -61,30 +62,34 @@ if [ "${ENABLE_REMOTEIP}" = true ] ; then
     a2enconf remoteip
 fi
 
-# Set ssmtp.conf and sendmail_path if PHP_SMTP_HOST is defined
+# Set /etc/msmtprc and sendmail_path if PHP_SMTP_HOST is defined
 if [ -z ${PHP_SMTP_HOST+x} ]; then
     echo "PHP_SMTP_HOST not set. Ignoring SMTP configuration..."
 else
-    echo "PHP_SMTP_HOST set to ${PHP_SMTP_HOST}, adding ssmtp in php configuration..."
+    echo "PHP_SMTP_HOST set to ${PHP_SMTP_HOST}, adding /usr/bin/msmtp in php configuration..."
     cat > /usr/local/etc/php/conf.d/docker-php-smtp.ini <<-EOF
-	sendmail_path = "/usr/sbin/ssmtp -t"
+	sendmail_path = "/usr/bin/msmtp -t"
 	EOF
     # Do not indent EOF with spaces, <<-EOF works with TAB
 
     SMTP_HOST=${PHP_SMTP_HOST}
     SMTP_PORT=${PHP_SMTP_PORT:=25} # Set to 25 if undefined
-    cat > /etc/ssmtp/ssmtp.conf <<-EOF
-	mailhub=${SMTP_HOST}:${SMTP_PORT}
-	FromLineOverride=yes
+    cat > /etc/msmtprc <<-EOF
+    defaults
+    
+    account default
+    host ${SMTP_HOST}
+    port ${SMTP_PORT}
+    from pluxml
 	EOF
     # Do not indent EOF with spaces, <<-EOF works with TAB
 
     SMTP_USE_TLS=${PHP_SMTP_USE_TLS:=no} # Set to 'no' if undefined
     if [ ${SMTP_USE_TLS} = "yes" ]; then
-        echo "SMTP_USE_TLS set to yes, adding parameters in ssmtp..."
-        cat >> /etc/ssmtp/ssmtp.conf <<-EOF
-		UseTLS=yes
-		UseSTARTTLS=yes
+        echo "SMTP_USE_TLS set to yes, adding parameters in /etc/msmtprc..."
+        cat >> /etc/msmtprc <<-EOF
+        tls on
+        tls_trust_file /etc/ssl/certs/ca-certificates.crt
 		EOF
     # Do not indent EOF with spaces, <<-EOF works with TAB
     fi
@@ -94,9 +99,10 @@ else
     else
         SMTP_USER=${PHP_SMTP_USER}
         SMTP_PASSWORD=${PHP_SMTP_PASSWORD}
-        cat  >> /etc/ssmtp/ssmtp.conf <<-EOF
-		AuthUser=${SMTP_USER}
-		AuthPass=${SMTP_PASSWORD}
+        cat  >> /etc/msmtprc <<-EOF
+        auth on
+        user ${SMTP_USER}
+        password ${SMTP_PASSWORD}
 		EOF
     fi
 fi
