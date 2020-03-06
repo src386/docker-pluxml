@@ -1,3 +1,9 @@
+## (March 06, 2020)
+
+FEATURES:
+
+- Added support for PluXml `5.8`.
+
 ## (October 12, 2019)
 
 BUGFIXES:
