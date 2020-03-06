@@ -17,10 +17,12 @@ You can find out more about PluXml features on the [project's website][pluxml] (
 
 ## Supported tags and respective `Dockerfile` links
 
-- [`5.7`][dockerfile-5.7], [`latest`][dockerfile-latest] ([5.7/Dockerfile][dockerfile-5.7])
+- [`5.8`][dockerfile-5.8], [`latest`][dockerfile-latest] ([5.8/Dockerfile][dockerfile-5.8])
+- [`5.7`][dockerfile-5.7] ([5.7/Dockerfile][dockerfile-5.7])
 - [`5.6`][dockerfile-5.6] ([5.6/Dockerfile][dockerfile-5.6])
 
 [dockerfile-latest]: https://github.com/src386/docker-pluxml/blob/master/5.7/Dockerfile
+[dockerfile-5.8]: https://github.com/src386/docker-pluxml/blob/master/5.8/Dockerfile
 [dockerfile-5.7]: https://github.com/src386/docker-pluxml/blob/master/5.7/Dockerfile
 [dockerfile-5.6]: https://github.com/src386/docker-pluxml/blob/master/5.6/Dockerfile
 
@@ -57,7 +59,7 @@ Then fire up a PluXml container:
 Features
 --------
 
-- Image currently based on php:7.2-apache
+- Image currently based on php:7.3-apache
 - Plugins: plxtoolbar (unofficial wysiwyg editor for PluXml) and plxmycontact (contact form)
 - Handles upgrades 
 
