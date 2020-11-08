@@ -7,7 +7,7 @@ services:
     build:
       context: .
       args:
-        - pluxml__version=5.8.3
+        - pluxml__version=5.8.4
     ports:
       - "127.0.0.1:80:80"
     volumes:

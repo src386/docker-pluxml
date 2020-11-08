@@ -1,3 +1,9 @@
+## 2020-11-08
+
+### Changed
+
+- Update to PluXml 5.8.4
+
 ## (March 06, 2020)
 
 FEATURES:
