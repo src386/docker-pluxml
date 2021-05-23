@@ -39,6 +39,5 @@ jobs:
           context: 5.8
           push: true
           tags: 
-            - src386/docker-pluxml:5.8
-            - src386/docker-pluxml:latest
+            - src386/docker-pluxml:5.8,src386/docker-pluxml:latest
           platforms: linux/amd64,linux/arm64
