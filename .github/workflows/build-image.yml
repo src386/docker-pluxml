@@ -5,11 +5,9 @@ on:
     branches:
       - 'master'
     paths-ignore:
-      - 'README.md'  
-      - 'CHANGELOG.md'
-      - 'LICENSE'
-      - '5.7/docker-compose.yml'
-      - '5.8/docker-compose.yml'
+      - '**.md'
+      - '**/docker-compose.yml'
+      - LICENSE
 
 jobs:
   docker:
