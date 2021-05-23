@@ -1,3 +1,20 @@
+## 2021-05-23
+
+### Added
+
+- Github actions (CI)
+- `arm64` build
+
+### Changed
+
+- Update to PluXml 5.8.6
+- Fix `install.php` file auto remove
+
+### Removed
+
+- Travis CI
+- PluXml `5.6` support
+
 ## 2020-11-08
 
 ### Changed
