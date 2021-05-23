@@ -3,6 +3,7 @@
 *A lightweight blog engine powered by PHP and Xml.*
 
 [![RSS commits][rss-commits]](https://github.com/src386/docker-pluxml/commits/master.atom)
+[![build](https://github.com/src386/docker-pluxml/actions/workflows/build-image.yml/badge.svg?branch=master)](https://github.com/src386/docker-pluxml/actions/workflows/build-image.yml)
 
 [pluxml-logo]: https://raw.githubusercontent.com/src386/docker-pluxml/master/lib/images/pluxml-logo-small.png
 [rss-commits]: https://img.shields.io/badge/RSS-commits-orange.svg
