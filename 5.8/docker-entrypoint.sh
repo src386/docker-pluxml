@@ -18,6 +18,7 @@ if [ ! -e "/var/www/html/data/configuration/parametres.xml" ]; then
 else
     echo "Existing Data found ."
     echo "install.php will be removed."
+    rm -f /var/www/html/install.php
 fi
 
 # Set date.timezone if PHP_TIMEZONE is defined
