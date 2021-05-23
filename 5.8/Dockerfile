@@ -1,10 +1,10 @@
 # docker-pluxml
 #
-FROM php:7.3-apache
+FROM php:7.4-apache
 
 # default ARG(s)
 #
-ARG pluxml__version=v5.8.4
+ARG pluxml__version=v5.8.6
 ARG pluxml__git=https://github.com/pluxml/PluXml
 ARG plxtoolbar__git=https://github.com/Pluxopolis/plxtoolbar
 ARG plxmycontact__git=https://github.com/Pluxopolis/plxMyContact
@@ -49,7 +49,7 @@ RUN set -xe; \
     apt-get install -y --no-install-recommends $buildDeps; \
     rm -rf /var/lib/apt/lists/*; \
     \
-    docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/; \
+    docker-php-ext-configure gd --with-freetype --with-jpeg; \
     docker-php-ext-install -j$(nproc) gd; \
     \
     apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false $buildDeps
