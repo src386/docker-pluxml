@@ -4,7 +4,7 @@ FROM php:7.4-apache
 
 # default ARG(s)
 #
-ARG pluxml__version=v5.8.6
+ARG pluxml__version=v5.8.7
 ARG pluxml__git=https://github.com/pluxml/PluXml
 ARG plxtoolbar__git=https://github.com/Pluxopolis/plxtoolbar
 ARG plxmycontact__git=https://github.com/Pluxopolis/plxMyContact
