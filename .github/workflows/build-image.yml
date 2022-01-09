@@ -31,14 +31,6 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
       -
-        name: Build and push (5.7)
-        uses: docker/build-push-action@v2
-        with:
-          context: 5.7
-          push: true
-          tags: src386/docker-pluxml:5.7
-          platforms: linux/amd64,linux/arm64
-      -
         name: Build and push (5.8)
         uses: docker/build-push-action@v2
         with:
