@@ -19,17 +19,14 @@ You can find out more about PluXml features on the [project's website][pluxml] (
 **Tags:**
 
 - [`5.8`][dockerfile-5.8], [`latest`][dockerfile-latest] ([5.8/Dockerfile][dockerfile-5.8])
-- [`5.7`][dockerfile-5.7] ([5.7/Dockerfile][dockerfile-5.7])
 
 **Architectures:**
 
 - `x86_64`
 - `arm64`
 
-[dockerfile-latest]: https://github.com/src386/docker-pluxml/blob/master/5.7/Dockerfile
+[dockerfile-latest]: https://github.com/src386/docker-pluxml/blob/master/5.8/Dockerfile
 [dockerfile-5.8]: https://github.com/src386/docker-pluxml/blob/master/5.8/Dockerfile
-[dockerfile-5.7]: https://github.com/src386/docker-pluxml/blob/master/5.7/Dockerfile
-[dockerfile-5.6]: https://github.com/src386/docker-pluxml/blob/master/5.6/Dockerfile
 
 ## Quick start
 
