@@ -1,10 +1,10 @@
 # docker-pluxml
 #
-FROM php:7.4-apache
+FROM php:8.2-apache
 
 # default ARG(s)
 #
-ARG pluxml__version=v5.8.7
+ARG pluxml__version=v5.8.9
 ARG pluxml__git=https://github.com/pluxml/PluXml
 ARG plxtoolbar__git=https://github.com/Pluxopolis/plxtoolbar
 ARG plxmycontact__git=https://github.com/Pluxopolis/plxMyContact

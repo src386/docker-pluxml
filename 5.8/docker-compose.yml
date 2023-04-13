@@ -3,11 +3,11 @@ services:
 
   pluxml:
     image:
-      src386/docker-pluxml:5.8
+      src386/docker-pluxml:5.8.9
     build:
       context: .
       args:
-        - pluxml__version=5.8.7
+        - pluxml__version=5.8.9
     ports:
       - "127.0.0.1:80:80"
     volumes:
