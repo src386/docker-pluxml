@@ -18,7 +18,7 @@ You can find out more about PluXml features on the [project's website][pluxml] (
 
 **Tags:**
 
-- [`5.8`][dockerfile-5.8], [`latest`][dockerfile-latest] ([5.8/Dockerfile][dockerfile-5.8])
+- [`5.8`][dockerfile-5.8], [`5.8.9`][dockerfile-5.8], [`latest`][dockerfile-latest] ([5.8/Dockerfile][dockerfile-5.8])
 
 **Architectures:**
 
@@ -61,7 +61,7 @@ Then fire up a PluXml container:
 Features
 --------
 
-- Latest image currently based on php:7.4-apache
+- Latest image currently based on php:8.2-apache
 - Plugins: plxtoolbar (unofficial wysiwyg editor for PluXml) and plxmycontact (contact form)
 - Handles upgrades 
 
