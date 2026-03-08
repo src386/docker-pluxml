@@ -1,3 +1,11 @@
+## 2026-03-09
+
+- PluXml 5.8.22 & php 8.4
+- Depreciation notice
+- Dockerhub image made private
+- Remove `.git` folders
+- Remove github actions
+
 ## 2023-04-13
 
 ### Changed

@@ -1,12 +1,13 @@
+> [!WARNING]
+> I don't maintain this project anymore.
+> This is just my Docker image, not PluXml itself.
+> The Dockerhub repo is now private.
+
 # [![PluXml logo][pluxml-logo]](http://www.pluxml.org/) docker-pluxml
 
 *A lightweight blog engine powered by PHP and Xml.*
 
-[![RSS commits][rss-commits]](https://github.com/src386/docker-pluxml/commits/master.atom)
-[![build](https://github.com/src386/docker-pluxml/actions/workflows/build-image.yml/badge.svg?branch=master)](https://github.com/src386/docker-pluxml/actions/workflows/build-image.yml)
-
 [pluxml-logo]: https://raw.githubusercontent.com/src386/docker-pluxml/master/lib/images/pluxml-logo-small.png
-[rss-commits]: https://img.shields.io/badge/RSS-commits-orange.svg
 
 [PluXml][pluxml] is a lightweight, easy to use opensource CMS/Blog-engine that requires no database. It is portable and can be installed in a standard php web hosting solution. Static pages, tags, media, rss, user management, plugins, url rewriting are supported. It is available in 11 languages.
 
@@ -18,7 +19,7 @@ You can find out more about PluXml features on the [project's website][pluxml] (
 
 **Tags:**
 
-- [`5.8`][dockerfile-5.8], [`5.8.9`][dockerfile-5.8], [`latest`][dockerfile-latest] ([5.8/Dockerfile][dockerfile-5.8])
+- [`5.8`][dockerfile-5.8], [`5.8.22`][dockerfile-5.8], [`latest`][dockerfile-latest] ([5.8/Dockerfile][dockerfile-5.8])
 
 **Architectures:**
 
@@ -61,7 +62,7 @@ Then fire up a PluXml container:
 Features
 --------
 
-- Latest image currently based on php:8.2-apache
+- Latest image currently based on php:8.4-apache
 - Plugins: plxtoolbar (unofficial wysiwyg editor for PluXml) and plxmycontact (contact form)
 - Handles upgrades 
 
