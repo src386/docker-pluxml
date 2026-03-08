@@ -1,10 +1,10 @@
 # docker-pluxml
 #
-FROM php:8.2-apache
+FROM php:8.4-apache
 
 # default ARG(s)
 #
-ARG pluxml__version=v5.8.9
+ARG pluxml__version=v5.8.22
 ARG pluxml__git=https://github.com/pluxml/PluXml
 ARG plxtoolbar__git=https://github.com/Pluxopolis/plxtoolbar
 ARG plxmycontact__git=https://github.com/Pluxopolis/plxMyContact
@@ -66,8 +66,11 @@ RUN set -xe; \
     rm -rf /var/lib/apt/lists/*; \
     \
     git clone -b $pluxml__version --single-branch --depth 1 $pluxml__git /var/www/html; \
+    rm -r /var/www/html/.git; \
     git clone $plxtoolbar__git /var/www/html/plugins/plxtoolbar; \
+    rm -r /var/www/html/plugins/plxtoolbar/.git; \
     git clone $plxmycontact__git /var/www/html/plugins/plxMyContact; \
+    rm -r /var/www/html/plugins/plxMyContact/.git; \
     mv /var/www/html/data /var/www/html/data.defaults; \
     chown -R www-data: /var/www/html; \
     \
